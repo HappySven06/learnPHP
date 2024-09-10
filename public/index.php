@@ -10,6 +10,34 @@ function dump(...$vars){
     echo '</pre>';
 }
 
+spl_autoload_register(function($class){
+    $class = substr($class, 4);
+    require_once "src/$class.php";
+});
+
+use App\Router;
+
+Router::addRoute('/', function(){
+    include 'views/index.php';
+});
+
+Router::addRoute('/us', function(){
+    include 'views/us.php';
+});
+
+$router = new App\Router($_SERVER['REQUEST_URI']);
+$match = $router->match();
+
+if($match){
+    call_user_func($match['action']);
+} else {
+    http_response_code(404);
+}
+
+
+
+
+/*
 switch($_SERVER['REQUEST_URI']){
     case '/':
         include 'views/index.php';
@@ -21,3 +49,4 @@ switch($_SERVER['REQUEST_URI']){
         echo '404';
         break;
 }
+*/
