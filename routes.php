@@ -1,8 +1,12 @@
 <?php
 
+use App\Controllers\PostsController;
 use App\Controllers\PublicController;
-use App\Router;
+use App\Route;
 
-Router::addRoute('/', [PublicController::class, 'index']);
+Route::get('/', [PublicController::class, 'index']);
 
-Router::addRoute('/us', [PublicController::class, 'us']);
+Route::get('/us', [PublicController::class, 'us']);
+Route::get('/form', [PublicController::class, 'form']);
+Route::post('/answer', [PublicController::class, 'answer']);
+Route::get('/admin/posts', [PostsController::class, 'index']);
