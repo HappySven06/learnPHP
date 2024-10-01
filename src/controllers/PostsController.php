@@ -14,6 +14,9 @@ class PostsController
     public function create(){
         view('posts/create');
     }
+    public function view(){
+        view('posts/view');
+    }
     public function store(){
         $post = new Post();
         $post->title = $_POST['title'];
