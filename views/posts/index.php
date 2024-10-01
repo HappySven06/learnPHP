@@ -1,7 +1,7 @@
-<?php include 'views/partials/header.php'; ?>
+<?php view('partials/header'); ?>
 
 <main class="container">
-
+    <a class="btn btn-primary" href="/admin/posts/create">New Post</a>
     <table class="table table-striped table-hoverable">
         <thead>
             <th>Id</th>
@@ -15,9 +15,9 @@
                     <td><?= $post->title ?></td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a type="button" class="btn btn-info">View</a>
-                            <a type="button" class="btn btn-warning">Edit</a>
-                            <a type="button" class="btn btn-danger">Delete</a>
+                            <a class="btn btn-info">View</a>
+                            <a class="btn btn-warning">Edit</a>
+                            <a class="btn btn-danger">Delete</a>
                         </div>
                     </td>
                 </tr>
@@ -27,4 +27,4 @@
 
 </main>
 
-<?php include 'views/partials/footer.php'; ?>
+<?php view('partials/footer'); ?>
